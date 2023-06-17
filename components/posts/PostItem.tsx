@@ -1,24 +1,25 @@
-import { useRouter } from 'next/router';
-import { useCallback, useMemo } from 'react';
-import { AiFillHeart, AiOutlineHeart, AiOutlineMessage } from 'react-icons/ai';
-import { formatDistanceToNowStrict } from 'date-fns';
+import {useRouter} from 'next/router';
+import {useCallback, useMemo} from 'react';
+import {AiFillHeart, AiOutlineHeart, AiOutlineMessage} from 'react-icons/ai';
+import {formatDistanceToNowStrict} from 'date-fns';
 
 import useLoginModal from '@/hooks/useLoginModal';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import useLike from '@/hooks/useLike';
 
 import Avatar from '../Avatar';
+
 interface PostItemProps {
   data: Record<string, any>;
   userId?: string;
 }
 
-const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
+const PostItem: React.FC<PostItemProps> = ({data = {}, userId}) => {
   const router = useRouter();
   const loginModal = useLoginModal();
 
-  const { data: currentUser } = useCurrentUser();
-  const { hasLiked, toggleLike } = useLike({ postId: data.id, userId});
+  const {data: currentUser} = useCurrentUser();
+  const {hasLiked, toggleLike} = useLike({postId: data.id, userId});
 
   const goToUser = useCallback((ev: any) => {
     ev.stopPropagation();
@@ -61,7 +62,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
         transition
       ">
       <div className="flex flex-row items-start gap-3">
-        <Avatar userId={data.user.id} />
+        <Avatar userId={data.user.id}/>
         <div>
           <div className="flex flex-row items-center gap-2">
             <p
@@ -104,7 +105,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
                 transition
                 hover:text-sky-500
             ">
-              <AiOutlineMessage size={20} />
+              <AiOutlineMessage size={20}/>
               <p>
                 {data.comments?.length || 0}
               </p>
@@ -121,7 +122,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
                 transition
                 hover:text-red-500
             ">
-              <LikeIcon color={hasLiked ? 'red' : ''} size={20} />
+              <LikeIcon color={hasLiked ? 'red' : ''} size={20}/>
               <p>
                 {data.likedIds.length}
               </p>
