@@ -38,16 +38,18 @@ const Sidebar = () => {
       <div className="flex flex-col items-end">
         <div className="space-y-2 lg:w-[230px]">
           <SidebarLogo />
-          {items.map((item) => (
-            <SidebarItem
-              key={item.href}
-              alert={item.alert}
-              auth={item.auth}
-              href={item.href}
-              icon={item.icon}
-              label={item.label}
-            />
-          ))}
+          {
+            items.map((item) => (
+              <SidebarItem
+                key={item.href}
+                alert={item.alert}
+                auth={item.auth}
+                href={item.href}
+                icon={item.icon}
+                label={item.label}
+              />
+            ))
+          }
           {currentUser && <SidebarItem onClick={() => signOut()} icon={BiLogOut} label="Logout" />}
           <SidebarPostButton />
         </div>
