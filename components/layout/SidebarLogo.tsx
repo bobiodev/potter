@@ -1,5 +1,5 @@
 import {useRouter} from "next/router";
-import {BsTwitter} from "react-icons/bs";
+import {GiHarryPotterSkull} from "react-icons/gi";
 
 const SidebarLogo = () => {
   const router = useRouter();
@@ -21,7 +21,7 @@ const SidebarLogo = () => {
             transition
           "
       >
-        <BsTwitter size={26} color="white"/>
+        <GiHarryPotterSkull size={26} color="white"/>
       </div>
   )
 }
