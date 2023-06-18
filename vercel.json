@@ -7,6 +7,9 @@
     }
   ],
   "env": {
-    "PRISMA_GENERATE_ON_POSTINSTALL": "true"
+    "VERCEL_GITHUB_ORG": "bobiodev",
+    "VERCEL_GITHUB_REPO": "potter",
+    "VERCEL_GITHUB_REPO_OWNER": "bobiodev",
+    "PRISMA_FORCE_NAPI": "true"
   }
 }
